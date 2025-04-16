@@ -1,5 +1,72 @@
 :root {
   --eggshell: #F0EAD6;
-
+  --text-light: #4F4F4F;
+  --accent-light: #DB5B00;
   background-color: var(--eggshell);
+}
+
+@font-face {
+  font-family: 'Domine-SemiBold';
+  src: url('/Domine-SemiBold.ttf');
+}
+@font-face {
+  font-family: 'Domine-Regular';
+  src: url('/Domine-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Domine-Bold';
+  src: url('/Domine-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Domine-V';
+  src: url('/Domine-VariableFont_wght.ttf');
+}
+
+
+
+h1, h2, h3, h4, p {
+  font-family: Domine-SemiBold                                                                             ;
+  color: var(--text-light);
+}
+
+h1 {
+  text-align: center;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+.headshot {
+  height: 128px;
+  width: 128px;
+  background-color: #ededed;
+  margin-top: 32px;
+  margin-bottom: 4px;
+}
+
+.size {
+  font-size: 2rem;
+}
+
+.margin {
+  margin-top: 24px;
+}
+
+.footer-text {
+  text-align: center;
+}
+
+.footer-button-container {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 48px;
 }

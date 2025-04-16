@@ -1,0 +1,32 @@
+.underline {
+    width: 200px;
+    height: 2px;
+    background-color: var(--text-light);
+    margin-top: 8px;
+}
+
+.header {
+    margin-top: 96px;
+}
+
+.subheader {
+    font-family: Domine-Regular;
+    font-size: 1.66rem;
+    margin-top: 24px;
+    color: #4f4f4f;
+}
+
+.body-text {
+    font-size: 12px;
+    line-height: 26px;
+    font-family: Domine-Regular;
+    max-width: 256px;
+    min-width: 128px;
+    text-align: justify;
+    /* text-align-last: center; */
+}
+
+span {
+    color: var(--accent-light);
+    font-family: Domine-Bold;
+}

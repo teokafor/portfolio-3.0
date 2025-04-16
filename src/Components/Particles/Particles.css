@@ -1,0 +1,10 @@
+.particle-container {
+    width: 256px;
+    height: 256px;
+    margin-top: 64px;
+    margin-bottom: 96px;
+
+    background-image: url('/particle_1.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
