@@ -17,23 +17,25 @@ export function App() {
       </div>
 
       <Section head={"About Me"}>
-        <div className="body-text">
-          <p>
-            <br />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-            sagittis lorem in lorem eleifend commodo. Vivamus ullamcorper.
-            <br />
-            <br />
-            Convallis urna vel varius. Proin mattis, quam at consequat
-            tincidunt, orci dolor rhoncus dui, vel cursus tellus eros posuere
-            risus. Proin et euismod leo. Etiam blandit dolor mauris, sit amet
-            dictum ipsum consequat vel.
-            <br />
-            <br />
-            Check out some of my past projects below!
-          </p>
+        <div className='section-flex'>
+          <div className="body-text">
+            <p>
+              <br />
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
+              sagittis lorem in lorem eleifend commodo. Vivamus ullamcorper.
+              <br />
+              <br />
+              Convallis urna vel varius. Proin mattis, quam at consequat
+              tincidunt, orci dolor rhoncus dui, vel cursus tellus eros posuere
+              risus. Proin et euismod leo. Etiam blandit dolor mauris, sit amet
+              dictum ipsum consequat vel.
+              <br />
+              <br />
+              Check out some of my past projects below!
+            </p>
+          </div>
+          <Particles />
         </div>
-        <Particles />
       </Section>
 
       <Section head={"Projects"}>

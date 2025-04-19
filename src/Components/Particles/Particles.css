@@ -8,3 +8,14 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+@media (min-width: 1200px) {
+    .particle-container {
+        width: 576px;
+        height: 576px;
+        margin: 0;
+        background-size: 384px;
+        background-position: center;
+        flex-shrink: 0;
+    }
+}

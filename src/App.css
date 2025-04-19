@@ -95,9 +95,10 @@ h1 {
   .header-box {
     flex-direction: row-reverse;
     align-items: end;
-    justify-content: space-around; 
+    justify-content: space-between; 
     gap: 256px;
     margin-top: 48px;
+    width: 1200px;
   }
 
   .size {

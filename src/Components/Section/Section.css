@@ -36,8 +36,8 @@ span {
     }
 
     .body-text {
-        font-size: 24px;
-        line-height: 48px;
+        font-size: 18px;
+        line-height: 36px;
         max-width: 512px;
         min-width: 256px;
     }
@@ -45,5 +45,13 @@ span {
     .subheader {
         font-size: 3.33rem;
         margin-top: 48px;
+    }
+
+    .section-flex {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 128px;
+        width: 1200px;
     }
 }
