@@ -8,9 +8,13 @@ import "./App.css";
 export function App() {
   return (
     <>
-      <div className="headshot"></div>
-      <h1 className="test size">Tobechukwu Okafor</h1>
-      <p className="undercard">Frontend Developer</p>
+      <div className='header-box'>
+        <img className="headshot"></img>
+        <div>
+          <h1 className="test size">Tobechukwu Okafor</h1>
+          <p className="undercard">Frontend Developer</p>
+        </div>
+      </div>
 
       <Section head={"About Me"}>
         <div className="body-text">

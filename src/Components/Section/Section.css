@@ -10,7 +10,6 @@
 }
 
 .subheader {
-    font-family: Domine-Regular;
     font-size: 1.66rem;
     margin-top: 24px;
     color: #4f4f4f;
@@ -18,15 +17,33 @@
 
 .body-text {
     font-size: 12px;
-    line-height: 26px;
-    font-family: Domine-Regular;
+    line-height: 24px;
     max-width: 256px;
     min-width: 128px;
     text-align: justify;
-    /* text-align-last: center; */
 }
-
 span {
     color: var(--accent-light);
     font-family: Domine-Bold;
+}
+
+
+@media (min-width: 1200px) {
+    .underline {
+        width: 300px;
+        height: 3px;
+        margin-top: 16px;
+    }
+
+    .body-text {
+        font-size: 24px;
+        line-height: 48px;
+        max-width: 512px;
+        min-width: 256px;
+    }
+
+    .subheader {
+        font-size: 3.33rem;
+        margin-top: 48px;
+    }
 }

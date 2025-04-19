@@ -26,8 +26,13 @@
 
 
 
-h1, h2, h3, h4, p {
-  font-family: Domine-SemiBold                                                                             ;
+h1, h2, h3, h4 {
+  font-family: Domine-SemiBold;
+  color: var(--text-light);
+}
+
+p {
+  font-family: Domine-Regular;
   color: var(--text-light);
 }
 
@@ -46,12 +51,17 @@ h1 {
   height: 128px;
   width: 128px;
   background-color: #ededed;
-  margin-top: 32px;
   margin-bottom: 4px;
+}
+
+.undercard {
+  margin-bottom: 48px;
+  font-family: Domine-SemiBold;
 }
 
 .size {
   font-size: 2rem;
+  letter-spacing: 3%;
 }
 
 .margin {
@@ -69,4 +79,50 @@ h1 {
   align-items: center;
   margin-top: 24px;
   margin-bottom: 48px;
+}
+
+.header-box, .header-box > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+@media (min-width: 1200px){
+  :root {
+    background-color: rgb(201, 166, 10);
+  }
+
+  .header-box {
+    flex-direction: row-reverse;
+    align-items: end;
+    justify-content: space-around; 
+    gap: 256px;
+    margin-top: 48px;
+  }
+
+  .size {
+    font-size: 3rem;
+    letter-spacing: 3%;
+  }  
+  .test {
+    text-align: start;
+    font-size: 3.5rem;
+    line-height: 72px;
+  } 
+  .undercard {
+    font-size: 1.7rem;
+    margin-bottom: 0;
+  } 
+  
+  .headshot {
+    height: 256px;
+    width: 256px;
+    background-color: #ededed;
+    margin-bottom: 0px;
+  }
+
+  .header-box > div {
+    align-items: flex-start;
+    width: 300px;
+  }
 }
