@@ -44,14 +44,31 @@ span {
 
     .subheader {
         font-size: 3.33rem;
-        margin-top: 48px;
     }
 
     .section-flex {
         display: flex;
-        flex-direction: row-reverse;
         align-items: center;
         gap: 128px;
         width: 1200px;
+        margin-bottom: 256px;
+    }
+
+    .even {
+        flex-direction: row-reverse;
+    }
+
+    .odd {
+        flex-direction: row;
+    }
+
+    .odd  p {
+        text-align: right;
+    }
+
+    .project-flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }

@@ -4,3 +4,13 @@
     background-color: grey;
     margin-top: 24px;
 }
+
+
+@media (min-width: 1200px) {
+    .carousel {
+        margin-top: 36px;
+        /* width: 384px; */
+        width: 512px;
+        height: 288px;
+    }
+}

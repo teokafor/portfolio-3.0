@@ -89,7 +89,7 @@ h1 {
 
 @media (min-width: 1200px){
   :root {
-    background-color: rgb(201, 166, 10);
+    /* background-color: rgb(201, 166, 10); */
   }
 
   .header-box {
@@ -99,6 +99,7 @@ h1 {
     gap: 256px;
     margin-top: 48px;
     width: 1200px;
+    margin-bottom: 128px;
   }
 
   .size {
