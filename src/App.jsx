@@ -1,13 +1,19 @@
 import { Section } from "./Components/Section/Section.jsx";
-import { Particles } from "./Components/Particles/Particles.jsx";
+import { ParticlesDummy, Particles } from "./Components/Particles/Particles.jsx";
 import { Carousel } from "./Components/Carousel/Carousel.jsx";
 import { FooterButton } from "./Components/FooterButton/FooterButton.jsx";
+
+
 
 import "./App.css";
 
 export function App() {
   return (
     <>
+
+    <Particles />
+          
+
       <div className="header-box">
         <img className="headshot"></img>
         <div>
@@ -34,7 +40,7 @@ export function App() {
               Check out some of my past projects below!
             </p>
           </div>
-          <Particles />
+          <ParticlesDummy />
         </div>
       </Section>
 
@@ -61,7 +67,7 @@ export function App() {
             </div>
             <Carousel />
             </div>
-          <Particles />
+          <ParticlesDummy />
           </div>
         </Section>
         <Section subhead={"Project Name II"}>
@@ -86,7 +92,7 @@ export function App() {
               </div>
               <Carousel />
             </div>
-              <Particles />
+              <ParticlesDummy />
           </div>
         </Section>
         <Section subhead={"Project Name III"}>
@@ -108,15 +114,14 @@ export function App() {
               <span>tool3.</span>
             </p>
           </div>
-          <Particles />
+          <ParticlesDummy />
           </div>
         </Section>
       </Section>
 
       <Section head={"Contact"} subhead={" "}>
         <p className="footer-text">
-          Website made with ♥️ (& <span>React</span> + <span>Tailwind</span> +{" "}
-          <span>Pts.js</span>.)
+          Website made with ♥️ (& <span>Pts.js</span>.)
         </p>
         <div className="footer-button-container">
           <FooterButton />
@@ -124,6 +129,10 @@ export function App() {
           <FooterButton />
           <FooterButton />
         </div>
+        <ParticlesDummy />
+
+
+
       </Section>
     </>
   );

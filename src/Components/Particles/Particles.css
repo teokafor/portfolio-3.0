@@ -1,4 +1,4 @@
-.particle-container {
+.particle-container-dummy {
     width: 256px;
     height: 256px;
     margin-top: 64px;
@@ -9,8 +9,18 @@
     background-repeat: no-repeat;
 }
 
+.real-particle-canvas {
+    width: 256px;
+    height: 256px;
+}
+
+.real-particle {
+    width: 256px;
+    height: 256px;
+}
+
 @media (min-width: 1200px) {
-    .particle-container {
+    .particle-container-dummy{
         width: 576px;
         height: 576px;
         margin: 0;
@@ -18,4 +28,16 @@
         background-position: center;
         flex-shrink: 0;
     }
+
+    .real-particle-canvas {
+        width: 384px;
+        height: 384px;
+    }
+
+    .real-particle {
+        width: 256px;
+        height: 256px;
+    }
 }
+
+
