@@ -29,18 +29,7 @@
   font-family: Domine;
   src: url('/media/Domine-VariableFont_wght.ttf');
 }
-
-
-
-/* Potential fix for mobile view bug */
-html, body {
-  overflow-y: auto;
-}
-#root {
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
+ 
 
 
 /* Text */
@@ -212,7 +201,9 @@ div[id*="carousel-"] img {
   color: white;
   cursor: pointer;
   background-color: rgba(0, 0, 0, 0.144);
-  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden { opacity: 0; }
@@ -314,7 +305,9 @@ html, body {
     width: 64px;
     font-size: 3rem;
     background-color: rgba(0, 0, 0, 0.144);
-    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .underline {
@@ -337,7 +330,6 @@ html, body {
   .section-flex {
     display: flex;
     align-items: center;
-    /* gap: 128px; */
     justify-content: space-between;
     width: 1200px;
     margin-bottom: 192px;

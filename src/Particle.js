@@ -14,15 +14,43 @@ const lightColor = '#4F4F4F';
 const darkColor = '#FFFFFF';
 const toggleButton = document.querySelector("[data-theme-toggle]");
 
-window.addEventListener("resize", paint); // Repaint all canvases when resized.
-paint(); // Perform initial paint
+
+// Resize
+let curWinHeight;
+let oldWinHeight = window.innerHeight;
+let heightChanged = true;
+
+// Repaint all canvases when window width changes.
+window.addEventListener("resize", () => { 
+  heightChanged = wasHeightResized();
+  console.log(heightChanged);
+  if (!heightChanged) paint(); 
+}); 
+
+// Perform initial paint
+paint();
+
+
+function wasHeightResized() {
+  curWinHeight = window.innerHeight;
+
+  if (curWinHeight === oldWinHeight){
+    oldWinHeight = window.innerHeight;
+    // console.log('no height change');
+    return false;
+  } else if (curWinHeight !== oldWinHeight) {
+    oldWinHeight = window.innerHeight;
+    // console.log('height change');
+    return true;
+  } 
+}
 
 function paint() {  
   // Reset scroll position on page (re)paint.
   // There seems to be a pts.js bug where canvas height is calculated based on scroll position.
   // I don't think it's my fault since it's also happening on the official site demos.
-  window.scrollTo(0, 0);
-    
+  if (!heightChanged) window.scrollTo(0, 0);
+
   for (let i in objs) {
     // Configure space:
     let space = new CanvasSpace(`particles-${i}`).setup({
@@ -30,11 +58,14 @@ function paint() {
       resize: true,
     });
      
-    // Dispose space when window is resized.
-    window.addEventListener("resize", clearThisWindow);
-    function clearThisWindow() {
-      window.removeEventListener('resize', clearThisWindow);
-      space.dispose();
+    // Dispose space when width changes.
+    if (!heightChanged) {
+      console.log('dispose');
+      window.addEventListener("resize", clearThisWindow);
+      function clearThisWindow() {
+        window.removeEventListener('resize', clearThisWindow);
+        space.dispose();
+      }
     }
 
     // Freeze canvases when cursor is not present.
@@ -88,7 +119,7 @@ function paint() {
 
         // Fill on page load/resize then pause canvas.
         fillParticles(pts);
-        space.pause();
+        // space.pause();
       },
 
       animate: (time, ftime) => {
@@ -120,9 +151,7 @@ function paint() {
     space.play().bindMouse().bindTouch();
 
 
-    function getTheme() {
-      return document.querySelector('html').getAttribute('data-theme');
-    }
+    function getTheme() { return document.querySelector('html').getAttribute('data-theme'); }
 
     function fillParticles(pts) {
       space.clear();
