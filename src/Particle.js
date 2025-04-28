@@ -14,13 +14,13 @@ const lightColor = '#4F4F4F';
 const darkColor = '#FFFFFF';
 const toggleButton = document.querySelector("[data-theme-toggle]");
 
-window.addEventListener("resize", paint); // Repaint all canvases when window is resized.
-paint(); // Initial paint
+window.addEventListener("resize", paint); // Repaint all canvases when resized.
+paint(); // Perform initial paint
 
 function paint() {  
   // Reset scroll position on page (re)paint.
   // There seems to be a pts.js bug where canvas height is calculated based on scroll position.
-  // I don't think it's my fault since it's also happening on the official site demos.  
+  // I don't think it's my fault since it's also happening on the official site demos.
   window.scrollTo(0, 0);
     
   for (let i in objs) {
@@ -138,6 +138,6 @@ function offsetStream(arr, offX, offY, size = 1, sizeXOffset = 1, sizeYOffset = 
     y: p.y * sizeYOffset + offY,
     size: p.size * size,
   }));
-  console.log(retArr);
+  // console.log(retArr);
   return retArr;
 }

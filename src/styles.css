@@ -30,6 +30,19 @@
   src: url('/media/Domine-VariableFont_wght.ttf');
 }
 
+
+
+/* Potential fix for mobile view bug */
+html, body {
+  overflow-y: auto;
+}
+#root {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
 /* Text */
 body, h1, h2, h3, h4, p, span, a, .undercard {
   font-family: var(--font-base);
