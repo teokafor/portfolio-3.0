@@ -20,11 +20,26 @@ let curWinHeight;
 let oldWinHeight = window.innerHeight;
 let heightChanged = true;
 
+let curWinWidth;
+let oldWinWidth = window.innerWidth;
+let widthChanged = true;
+
+let shouldRepaint;
+
 // Repaint all canvases when window width changes.
 window.addEventListener("resize", () => { 
   heightChanged = wasHeightResized();
-  console.log(heightChanged);
-  if (!heightChanged) paint(); 
+  widthChanged = wasWidthResized();
+
+  /*
+    We want to repaint when:
+
+    A.) width changes on mobile
+    B.) width or height changes on desktop
+    C.) width and height changes together (zoom)
+  */
+  shouldRepaint = (!mql.matches && !heightChanged && widthChanged) || (mql.matches) || (!mql.matches && heightChanged && widthChanged);
+  if (shouldRepaint) paint(); 
 }); 
 
 // Perform initial paint
@@ -33,14 +48,22 @@ paint();
 
 function wasHeightResized() {
   curWinHeight = window.innerHeight;
-
   if (curWinHeight === oldWinHeight){
     oldWinHeight = window.innerHeight;
-    // console.log('no height change');
     return false;
   } else if (curWinHeight !== oldWinHeight) {
     oldWinHeight = window.innerHeight;
-    // console.log('height change');
+    return true;
+  } 
+}
+
+function wasWidthResized() {
+  curWinWidth = window.innerWidth;
+  if (curWinWidth === oldWinWidth){
+    oldWinWidth = window.innerWidth;
+    return false;
+  } else if (curWinWidth !== oldWinWidth) {
+    oldWinWidth = window.innerWidth;
     return true;
   } 
 }
@@ -49,7 +72,7 @@ function paint() {
   // Reset scroll position on page (re)paint.
   // There seems to be a pts.js bug where canvas height is calculated based on scroll position.
   // I don't think it's my fault since it's also happening on the official site demos.
-  if (!heightChanged) window.scrollTo(0, 0);
+  if (shouldRepaint) window.scrollTo(0, 0);
 
   for (let i in objs) {
     // Configure space:
@@ -59,13 +82,10 @@ function paint() {
     });
      
     // Dispose space when width changes.
-    if (!heightChanged) {
-      console.log('dispose');
-      window.addEventListener("resize", clearThisWindow);
-      function clearThisWindow() {
-        window.removeEventListener('resize', clearThisWindow);
-        space.dispose();
-      }
+    if (shouldRepaint) window.addEventListener("resize", clearThisWindow);
+    function clearThisWindow() {
+      if (shouldRepaint) window.removeEventListener('resize', clearThisWindow);
+      if (shouldRepaint) space.dispose();
     }
 
     // Freeze canvases when cursor is not present.
@@ -119,7 +139,7 @@ function paint() {
 
         // Fill on page load/resize then pause canvas.
         fillParticles(pts);
-        // space.pause();
+        space.pause();
       },
 
       animate: (time, ftime) => {
