@@ -139,20 +139,21 @@ function paint() {
 
         // Fill on page load/resize then pause canvas.
         fillParticles(pts);
-        space.pause();
+        setTimeout(() => { space.pause();}, 20);
       },
 
       animate: (time, ftime) => {
         let r = 100;
-        let range = Circle.fromCenter(space.pointer, r);
+        let pointer = isCanvasActive ? space.pointer : new Pt([0,0]);
+        let range = Circle.fromCenter(pointer, r);
 
         fillParticles(pts);
         
         // Debugger:
-        // form.log(`ms: ${ftime.toFixed(2)}     fps: ${Math.round(1000 / ftime)}     pointer: ${space.pointer}`);
+        // form.log(`ms: ${ftime.toFixed(2)}     fps: ${Math.round(1000 / ftime)}     pointer: ${pointer}`);
         
         for (let i = 0; i < pts.length; i++) {
-          let dir = pts[i].current.$subtract(space.pointer);
+          let dir = pts[i].current.$subtract(pointer);
           let dist = dir.magnitude();
 
           if (Circle.withinBound(range, pts[i].current) && isCanvasActive) {
@@ -187,6 +188,5 @@ function offsetStream(arr, offX, offY, size = 1, sizeXOffset = 1, sizeYOffset = 
     y: p.y * sizeYOffset + offY,
     size: p.size * size,
   }));
-  // console.log(retArr);
   return retArr;
 }
