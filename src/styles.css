@@ -195,15 +195,22 @@ div[id*="carousel-"] img {
 .literals button {
   height: 32px;
   width: 32px;
-  background: none;
   border: none;
-  font-size: 2rem;
-  color: white;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.144);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fffffffc;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.prev {
+  background-image: url('/media/caret-left-fill.svg');
+}
+
+.next {
+  background-image: url('/media/caret-right-fill.svg');
 }
 
 .hidden { opacity: 0; }
@@ -303,11 +310,6 @@ html, body {
   .literals button {
     height: 64px;
     width: 64px;
-    font-size: 3rem;
-    background-color: rgba(0, 0, 0, 0.144);
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 
   .underline {
