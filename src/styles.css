@@ -199,7 +199,7 @@ div[id*="carousel-"] img {
   cursor: pointer;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #fffffffc;
+  background-color: #0000001a;
   display: flex;
   justify-content: center;
   align-items: center;
